@@ -1,17 +1,17 @@
-CC									:= gcc
-LD									:= gcc
+CC		:= gcc
+LD		:= gcc
 
-SRC_DIR							:= ./src
-INCDIR 			 				:= ./include
-LIB_DIR 		 				:= ./lib
-BIN_DIR							:= ./bin
+SRC_DIR		:= ./src
+INCDIR 		:= ./include
+LIB_DIR 	:= ./lib
+BIN_DIR		:= ./bin
 
-SRC_FILES 				 	:= $(wildcard $(SRC_DIR)/*.c)
-OBJS_FILES          := $(patsubst %.c,%.o,$(SRC_FILES))
-BIN_FILES						:= $(patsubst %.c,%,$(SRC_FILES))
+SRC_FILES 	:= $(wildcard $(SRC_DIR)/*.c)
+OBJS_FILES      := $(patsubst %.c,%.o,$(SRC_FILES))
+BIN_FILES	:= $(patsubst %.c,%,$(SRC_FILES))
 
-LD_FLAGS						:= -L $(LIB_DIR) -l:libssl.so.3 -l:libcrypto.so.3
-INC_FLAGS           := -I $(INCDIR)
+LD_FLAGS	:= -L $(LIB_DIR) -l:libssl.so.3 -l:libcrypto.so.3
+INC_FLAGS       := -I $(INCDIR)
 
 
 all: $(OBJS_FILES) $(BIN_FILES)
