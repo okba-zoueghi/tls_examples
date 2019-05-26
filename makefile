@@ -3,14 +3,13 @@ LD		:= gcc
 
 SRC_DIR		:= ./src
 INCDIR 		:= ./include
-LIB_DIR 	:= ./lib
 BIN_DIR		:= ./bin
 
 SRC_FILES 	:= $(wildcard $(SRC_DIR)/*.c)
 OBJS_FILES      := $(patsubst %.c,%.o,$(SRC_FILES))
 BIN_FILES	:= $(patsubst %.c,%,$(SRC_FILES))
 
-LD_FLAGS	:= -L $(LIB_DIR) -l:libssl.so.3 -l:libcrypto.so.3
+LD_FLAGS	:= -L $(LIB_SSL_PATH) -lssl -L $(LIB_CRYPTO_PATH) -lcrypto
 INC_FLAGS       := -I $(INCDIR)
 
 
