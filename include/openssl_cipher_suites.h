@@ -10,3 +10,9 @@
 #define TLS_CHACHA20_POLY1305_SHA256               "TLS_CHACHA20_POLY1305_SHA256"
 #define TLS_AES_128_CCM_SHA256                     "TLS_AES_128_CCM_SHA256"
 #define TLS_AES_128_CCM_8_SHA256                   "TLS_AES_128_CCM_8_SHA256"
+
+/* PSK cipher suites */
+#define PSK_WITH_AES_128_CBC_SHA                  "PSK-AES128-CBC-SHA"
+#define PSK_WITH_AES_256_CBC_SHA                  "PSK-AES256-CBC-SHA"
+#define DHE_PSK_WITH_AES_128_GCM_SHA256           "DHE-PSK-AES128-GCM-SHA256"
+#define DHE_PSK_WITH_AES_256_GCM_SHA384           "DHE-PSK-AES256-GCM-SHA384"
