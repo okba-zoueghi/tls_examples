@@ -83,9 +83,8 @@ int main(int argc, char const *argv[]) {
       exit(EXIT_FAILURE);
     }
 
-	LOG_INFO("Cipher suites loaded");
-
-	SSL_CTX_set_psk_client_callback(ctx, psk_client_callback);
+    LOG_INFO("Cipher suites loaded");
+    SSL_CTX_set_psk_client_callback(ctx, psk_client_callback);
 
     if ( connect(sock, (struct sockaddr*)&addr, sizeof(addr)) != 0 )
     {
@@ -117,10 +116,10 @@ int main(int argc, char const *argv[]) {
     printf("received from the server : %s\n", msg);
 
 
-
+    SSL_shutdown(ssl);
     SSL_free(ssl);
-    close(sock);
     SSL_CTX_free(ctx);
+    close(sock);
 
     LOG_INFO("Connection closed");
 

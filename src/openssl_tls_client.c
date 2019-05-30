@@ -159,10 +159,10 @@ int main(int argc, char const *argv[]) {
     printf("received from the server : %s\n", msg);
 
 
-
+    SSL_shutdown(ssl);
     SSL_free(ssl);
-    close(sock);
     SSL_CTX_free(ctx);
+    close(sock);
 
     LOG_INFO("Connection closed");
 

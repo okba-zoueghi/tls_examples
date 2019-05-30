@@ -102,9 +102,8 @@ int main(int argc, char const *argv[]) {
       exit(EXIT_FAILURE);
     }
 
-	LOG_INFO("Cipher suites loaded");
-
-	SSL_CTX_set_psk_server_callback(ctx, psk_server_callback);
+    LOG_INFO("Cipher suites loaded");
+    SSL_CTX_set_psk_server_callback(ctx, psk_server_callback);
 
     while (1)
     {
@@ -138,6 +137,7 @@ int main(int argc, char const *argv[]) {
       memcpy(recv_msg, MSG, sizeof(MSG));
       SSL_write(ssl, recv_msg, sizeof(MSG));
 
+      SSL_shutdown(ssl);
       SSL_free(ssl);
       close(client_socket);
 
@@ -145,8 +145,8 @@ int main(int argc, char const *argv[]) {
     }
 
 
-  close(sock);
   SSL_CTX_free(ctx);
+  close(sock);
 
   return 0;
 }
