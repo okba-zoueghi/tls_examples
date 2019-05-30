@@ -140,6 +140,9 @@ int main(int argc, char const *argv[]) {
 
     SSL_CTX_set_verify(ctx, SSL_VERIFY_PEER | SSL_VERIFY_FAIL_IF_NO_PEER_CERT, NULL);
 
+    //Disable sending session ticket
+    SSL_CTX_set_options(ctx, SSL_OP_NO_TICKET);
+    
     while (1)
     {
       struct sockaddr_in addr;

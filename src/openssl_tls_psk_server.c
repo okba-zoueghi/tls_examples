@@ -105,6 +105,9 @@ int main(int argc, char const *argv[]) {
     LOG_INFO("Cipher suites loaded");
     SSL_CTX_set_psk_server_callback(ctx, psk_server_callback);
 
+    //Disable sending session ticket
+    SSL_CTX_set_options(ctx, SSL_OP_NO_TICKET);
+
     while (1)
     {
       struct sockaddr_in addr;
